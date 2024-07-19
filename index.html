@@ -1,0 +1,99 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Stable-Hair</title>
+<link href="./assets/style.css" rel="stylesheet">
+<script type="text/javascript" src="./assets/jquery.mlens-1.0.min.js"></script> 
+<script type="text/javascript" src="./assets/jquery.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body>
+<div class="content">
+  <h1><strong>Stable-Hair: Real-World Hair Transfer via Diffusion Model</strong></h1>
+  <p id="authors">
+  <span>Yuxuan Zhang,</span>
+  <span>Qing Zhang,</span>
+  <span>Yiren Song,</span>
+  <span>Jiaming Liu,</span>
+</p> <br>
+<div style="text-align: center;">
+  <span style="font-size: 24px">Shanghai Jiao Tong University, Tiamat AI, Shenyang Institute of Automation Chinese Academy of Sciences, National University of Singapore
+</div>
+  <br>
+  <img src="./assets/teaser.jpg" class="teaser-gif" style="width:100%;"><br>
+  <h3 style="text-align:center; font-size: 16px;"><em>Stable-Hair is a novel diffusion-based hairstyle transfer method that can robustly transfer a diverse range of real-world hairstyles. We demonstrate its performance on a variety of challenging hairstyles, achieving highly detailed and high-fidelity transfers with impressive results while preserving the original identity content and structure.</em></h3>
+    <font size="+2">
+          <p style="text-align: center;">
+            <a href="https://github.com/Xiaojiu-z/Stable-Hair" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://github.com/Xiaojiu-z/Stable-Hair" target="_blank">[Code]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+          </p>
+    </font>
+</div>
+<div class="content">
+  <h2 style="text-align:center;">Abstract</h2>
+  <p>Current hair transfer methods struggle to handle diverse and intricate hairstyles, thus limiting their applicability in real-world scenarios. In this paper, we propose a novel diffusion-based hair transfer framework, named \textit{Stable-Hair}, which robustly transfers a wide range of real-world hairstyles onto user-provided faces for virtual hair try-on. To achieve this goal, our Stable-Hair framework is designed as a two-stage pipeline. In the first stage, we train a Bald Converter alongside stable diffusion to remove hair from the user-provided face images, resulting in bald images. In the second stage, we specifically designed three modules: a Hair Extractor, a Latent IdentityNet, and Hair Cross-Attention Layers to transfer the target hairstyle with highly detailed and high-fidelity to the bald image. Specifically, the Hair Extractor is trained to encode reference images with the desired hairstyles. To preserve the consistency of identity content and background between the source images and the transfer results, we employ a Latent IdentityNet to encode the source images. With the assistance of our Hair Cross-Attention Layers in the U-Net, we can accurately and precisely transfer the highly detailed and high-fidelity hairstyle to the bald image. Extensive experiments have demonstrated that our approach delivers state-of-the-art (SOTA) results among existing hair transfer methods.</p>
+</div>
+<div class="content">
+  <h2>Background</h2>
+  <p>With the increasing prevalence of digital media and virtual reality applications, personalized virtual avatars and virtual try-on systems have emerged as a significant research area. Hair transfer is one of the most challenging tasks within this domain. In recent years, the advancements in Generative Adversarial Networks (GANs) have driven significant progress in this field. However, these GAN-based methods often struggle to handle the diverse and complex hairstyles encountered in real-world scenarios, which severely limits their effectiveness in practical applications.</p>
+  <br>
+</div>
+<div class="content">
+  <h2>Approach</h2>
+<p> Our Stable-Hair consists of two stages to achieve high-quality hair transfer. First, the user's input source image is transformed into a bald proxy image. This transformation is accomplished using a pre-trained Stable Diffusion (SD) model in conjunction with a specialized Bald Converter. In the second stage, we employ the pre-trained SD model along with a Hair Extractor to transfer the reference hair onto the bald proxy image. The Hair Extractor is responsible for capturing the intricate details and features of the reference hair. These features are then injected into the SD model through newly added hair cross-attention layers. By leveraging these two stages, our method achieves highly detailed and high-fidelity hair transfers, producing natural and visually appealing results. </p>
+  <br>
+  <img class="summary-img" src="./assets/method.jpg" style="width:100%;"> <br>
+  <br>
+</div>
+<div class="content">
+  <h2>Visual Comparison</h2>
+  <p> Compared to other approaches, our method achieves more refined and stable hairstyle transfer without the need for precise facial alignment or explicit masks for supervision.</p>
+<img class="summary-img" src="./assets/compare.jpg" style="width:100%;">
+<img class="summary-img" src="./assets/compare2.jpg" style="width:100%;">
+</div>
+<div class="content">
+  <h2>Cross-domain transfer</h2>
+  <p>The robustness of our method enables the transfer of hairstyles across diverse domains, a capability that previous approaches were unable to achieve. This demonstrates the significant advancements our method offers in the realm of hairstyle transfer.</p>
+  <br>
+  <img class="summary-img" src="./assets/sup_cartoon.jpg" style="width:100%;"> <br>
+</div>
+
+<div class="content">
+  <h2>More Results</h2>
+  <p>We also present a range of additional results that demonstrate the robustness and superiority of our approach.</p>
+  <br>
+  <img class="summary-img" src="./assets/sup_real.jpg" style="width:100%;"> <br>
+</div>
+
+</div>
+
+<div class="content">
+  <h2>BibTex</h2>
+  <code> @misc{zhang2024stablemakeup,<br>
+  &nbsp;&nbsp;title={Stable-Makeup: When Real-World Makeup Transfer Meets Diffusion Model},<br>
+  &nbsp;&nbsp;author={Yuxuan Zhang, Lifu Wei, Qing Zhang, Yiren Song, Jiaming Liu, Huaxia Li, Xu Tang, Yao Hu, Haibo Zhao},<br>
+  &nbsp;&nbsp;year={2024},<br>
+  &nbsp;&nbsp;eprint={2403.07764},<br>
+  &nbsp;&nbsp;archivePrefix={arXiv},<br>
+  &nbsp;&nbsp;primaryClass={cs.CV}<br>
+  } </code> 
+</div> 
+
+<br><br>
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">                                                                                                                                   
+      <!-- <div class="content"> -->
+      The website template is taken from <a href="https://dreambooth.github.io/">dreambooth</a> project page.
+      <!-- </div> -->
+    </div>
+  </div>
+</footer>
+<br><br>
+
+</body>
+</html>
